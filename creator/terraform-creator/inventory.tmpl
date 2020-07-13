@@ -1,0 +1,9 @@
+[lb]
+${lb-dns} ansible_host=${lb-ip}
+
+[webservers]
+%{ for index, dns in webserver-dns ~}
+
+${dns} ansible_host=${webserver-ip[index]} # ${webserver-ip[index]}
+
+%{ endfor ~}
