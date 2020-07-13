@@ -1,6 +1,0 @@
----
-- name: setup docker on all machines
-  hosts: lb_group, webservers
-  roles:
-     - setup/docker
-

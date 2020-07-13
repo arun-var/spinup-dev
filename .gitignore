@@ -1,2 +1,3 @@
 creator/ubuntu*
 creator/virtualbox*
+creator/.vagrant/**/*
