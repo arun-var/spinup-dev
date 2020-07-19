@@ -4,3 +4,9 @@
   roles:
      - setup/docker
 
+- name: pull required images
+  hosts: lb_group
+  roles:
+    - setup/pull-docker-images
+  vars:
+    - images: ['haproxy:1.7']

@@ -1,0 +1,14 @@
+---
+- name: setup nginx on webservers
+  hosts: webservers
+  roles:
+     - setup/nginx
+  vars:
+    DATA_PATH: /etc/nginx
+
+- name: setup haproxy on lb machine
+  hosts: lb_group
+  roles:
+     - setup/haproxy
+  vars:
+    DATA_PATH: /home/vagrant

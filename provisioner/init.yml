@@ -1,0 +1,5 @@
+---
+- name: init machines
+  hosts: lb_group,webservers
+  roles:
+     - setup/init

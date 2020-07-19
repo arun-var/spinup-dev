@@ -1,20 +1,43 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64"
-  
-  config.vm.define "lb"
-  config.vm.define "webserver1"
-  config.vm.define "webserver2"
-  
+
+  config.vm.define "lb" do |lb_config|
+    lb_config.vm.provider "virtualbox" do |vb|
+      vb.memory = 256
+      vb.cpus = 1
+    end
+  end
+
+  config.vm.define "webserver1" do |w1_config|
+    w1_config.vm.provider "virtualbox" do |vb|
+      vb.memory = 512
+      vb.cpus = 1
+    end
+    w1_config.vm.network "forwarded_port", guest: 80, host: 8080
+  end
+
+  config.vm.define "webserver2" do |w2_config|
+    w2_config.vm.provider "virtualbox" do |vb|
+      vb.memory = 512
+      vb.cpus = 1
+    end
+    w2_config.vm.network "forwarded_port", guest: 80, host: 8081
+  end
 
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "../../provisioner/main.yml"
+    ansible.playbook = "../../provisioner/init.yml"
+    ansible.verbose = "vvvv"
     ansible.groups = {
       "lb_group" => ["lb"],
       "webservers" => ["webserver[1:2]"],
       "all_groups:children" => ["lb_group", "webservers"]
     }
+    ansible.host_vars = {
+      "webserver1" => {"http_port" => 8080
+                  },
+      "webserver2" => {"http_port" => 8081}
+    }
   end
- 
-     
-end
 
+
+end

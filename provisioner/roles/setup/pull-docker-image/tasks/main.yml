@@ -1,0 +1,6 @@
+- name: Pull the image
+  become: true
+  docker_image:
+    name: {{ item }}
+    source: pull
+  with_items: {{ images }}

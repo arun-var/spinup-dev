@@ -1,0 +1,26 @@
+- name: Install HAProxy
+  become: true
+  action: apt pkg=haproxy state=latest
+
+- name: Enable HAProxy service
+  action: service name=haproxy enabled=yes
+
+
+- name: create/update the config
+  template:
+    src: ha.cfg
+    dest: "{{ DATA_PATH }}/haproxy.cfg"
+
+- name: find dir
+  command: cat /home/vagrant/haproxy.cfg
+  register: find_files
+
+- name: list files
+  debug: var=find_files
+
+- debug:
+    msg: " {{ item.key }} is {{ item.value }}"
+  loop: "{{ lookup('dict', hostvars) }}"
+
+- name: test configuration
+  command: haproxy -c -V -f {{ DATA_PATH }}/haproxy.cfg

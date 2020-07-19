@@ -1,0 +1,7 @@
+- name: restart haproxy
+  become: true
+  action: service name=haproxy state=restarted
+
+- name: restart nginx
+  become: true
+  action: service name=nginx state=restarted
