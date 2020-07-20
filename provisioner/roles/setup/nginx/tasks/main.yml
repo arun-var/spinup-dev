@@ -17,6 +17,18 @@
     src: nginx.conf.j2
     dest: "{{ DATA_PATH }}/nginx.conf"
 
+- name: create tmp directory
+  become: true
+  file:
+    path: "{{ DATA_PATH }}/vhosts"
+    state: directory
+
+- name: create/update the host conf
+  become: true
+  template:
+    src: host.conf.j2
+    dest: "{{ DATA_PATH }}/vhosts/host.conf"
+
 - name: Recursively change ownership of a directory
   become: true
   file:
