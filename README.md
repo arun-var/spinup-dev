@@ -12,16 +12,20 @@ from this [link](https://github.com/terra-farm/terraform-provider-virtualbox/rel
 ## Steps to Run
 
 1. Clone the repository.
-2. ```sh
+2. ```console
 
-cd spinup-dev/creator/vagrant-creator
-vagrant up --provision
-cd ../../provisioner
-ansible-playbook -i ../creator/vagrant-creator/.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
+mushycode@dev:~$ cd spinup-dev/creator/vagrant-creator
+
+mushycode@dev:~$ vagrant up --provision
+
+mushycode@dev:~$ cd ../../provisioner
+
+mushycode@dev:~$ ansible-playbook -i ../creator/vagrant-creator/.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
 test.yml
-curl 172.16.0.10
 
-```sh
+mushycode@dev:~$ curl 172.16.0.10
+
+```console
 
 Note: With terraform virtualbox provider I was able to get it working with
 ubuntu 15 image only. Vagrant spawns ubuntu 18 VMs.
