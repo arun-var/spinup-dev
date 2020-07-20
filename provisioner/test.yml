@@ -11,4 +11,4 @@
   roles:
      - setup/haproxy
   vars:
-    DATA_PATH: /home/vagrant
+    DATA_PATH: /etc/haproxy
