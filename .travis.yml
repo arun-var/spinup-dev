@@ -9,7 +9,7 @@ before_install:
 install:
   # Install Ansible.
   - pip install ansible
-  - "printf '[defaults]\nroles_path = ../' > provisioner/tests/ansible.cfg"
+  - "printf '[defaults]\nroles_path = ../roles' > provisioner/tests/ansible.cfg"
 
 script:
      - cd provisioner/tests; ansible-playbook -i tests/inventory tests/test.yml --syntax-check
