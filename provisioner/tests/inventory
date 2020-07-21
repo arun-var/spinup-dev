@@ -1,4 +1,4 @@
 [webservers]
-localhost ansible_connection=local
+localhost ansible_connection=local ansible_host=localhost
 [lb_groups]
-localhost ansible_connection=local
+localhost ansible_connection=local ansible_host=localhost
