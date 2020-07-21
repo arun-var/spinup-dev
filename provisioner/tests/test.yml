@@ -3,3 +3,5 @@
   remote_user: travis
   roles:
     - setup/haproxy
+  vars:
+    DATA_PATH: /etc/haproxy

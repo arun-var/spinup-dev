@@ -17,5 +17,5 @@ script:
      - >
        ansible-playbook -i inventory test.yml --connection=local
        | grep -q 'changed=0.*failed=0'
-         && (echo 'Idempotence test: pass' && exit 0)
-       || (echo 'Idempotence test: fail' && exit 1)
+         &amp;&amp; (echo 'Idempotence test: pass' &amp;&amp; exit 0)
+       || (echo 'Idempotence test: fail' &amp;&amp; exit 1)
