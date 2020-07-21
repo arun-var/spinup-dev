@@ -5,10 +5,6 @@
 - name: Enable HAProxy service
   action: service name=haproxy enabled=yes
 
-- debug:
-    msg: " {{ item.key }} is {{ item.value }}"
-  loop: "{{ lookup('dict', hostvars) }}"
-
 - name: create/update the config
   become: true
   template:
