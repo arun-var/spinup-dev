@@ -1,5 +1,5 @@
 
-# spinup-dev
+# spinup-dev [![Build Status](https://travis-ci.com/mushycode/spinup-dev.svg?branch=master)](https://travis-ci.com/mushycode/spinup-dev)
 
 An example repo to spin up a dev environment with a load balancer and web servers
 on virtualbox using terraform/vagrant and ansible. While using terraform,
