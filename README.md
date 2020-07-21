@@ -9,6 +9,10 @@ from this [link](https://github.com/terra-farm/terraform-provider-virtualbox/rel
 
 **UPDATE**: Currently focussed on vagrant and ansible provisioning.
 
+## Tested using
+1) ansible 2.9.10
+
+
 ## Steps to Run
 
 1. Clone the repository.
