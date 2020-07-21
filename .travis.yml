@@ -13,9 +13,9 @@ install:
 
 script:
      - cd provisioner/tests; ansible-playbook -i inventory test.yml --syntax-check
-     - "ansible-playbook -i inventory test.yml --connection=local"
+     - "ansible-playbook -i inventory test.yml"
      - >
-       ansible-playbook -i inventory test.yml --connection=local
+       ansible-playbook -i inventory test.yml
        | grep -q 'changed=0.*failed=0'
          &amp;&amp; (echo 'Idempotence test: pass' &amp;&amp; exit 0)
        || (echo 'Idempotence test: fail' &amp;&amp; exit 1)
