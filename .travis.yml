@@ -26,7 +26,7 @@ install:
   # Install vagrant-libvirt Vagrant plugin
   - sudo vagrant plugin install vagrant-libvirt
   # Install Ansible.
-  - pip install ansible molecule yamllint ansible-lint molecule-vagrant
+  - sudo pip install ansible molecule yamllint ansible-lint molecule-vagrant
   - sudo chown -R travis:travis /home/travis/.vagrant.d
   - sudo chown -R travis:travis /var/run/libvirt
   - printf "[defaults]\nroles_path = ../roles" > provisioner/tests/ansible.cfg
