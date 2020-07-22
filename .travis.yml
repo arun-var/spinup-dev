@@ -1,6 +1,12 @@
 ---
+dist: bionic
 language: python
 python: "2.7"
+
+cache:
+  directories:
+  - /home/travis/.vagrant.d/boxes
+
 
 before_install:
   # Make sure everything's up to date.
