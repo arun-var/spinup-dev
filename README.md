@@ -16,7 +16,10 @@ from this [link](https://github.com/terra-farm/terraform-provider-virtualbox/rel
 ## Steps to Run
 
 1. Clone the repository.
-2. ```console
+
+2. commands
+
+```console
 
 mushycode@dev:~$ cd spinup-dev/creator/vagrant-creator
 
@@ -29,7 +32,7 @@ test.yml
 
 mushycode@dev:~$ curl 172.16.0.10
 
-```console
+```
 
 ## Things to Do
 
