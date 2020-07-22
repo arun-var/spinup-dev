@@ -7,6 +7,18 @@ before_install:
   - sudo apt-get update -qq
 
 install:
+  # Install libvrt & KVM
+  - sudo apt-get update && sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
+
+  # Download Vagrant & Install Vagrant package
+  - sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
+  - sudo dpkg -i vagrant_2.2.7_x86_64.deb
+
+  # Vagrant correctly installed?
+  - vagrant --version
+
+  # Install vagrant-libvirt Vagrant plugin
+  - sudo vagrant plugin install vagrant-libvirt
   # Install Ansible.
   - pip install ansible molecule yamllint ansible-lint molecule-vagrant
   - printf "[defaults]\nroles_path = ../roles" > provisioner/tests/ansible.cfg
