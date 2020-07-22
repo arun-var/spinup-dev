@@ -1,6 +1,6 @@
 - name: Install HAProxy
   become: true
-  action: apt pkg=haproxy state=latest
+  action: apt pkg=haproxy state=present update_cache=yes
 
 - name: Enable HAProxy service
   action: service name=haproxy enabled=yes
@@ -9,9 +9,11 @@
   become: true
   template:
     src: ha.cfg
-    dest: "{{ DATA_PATH }}/haproxy.cfg"
+    dest: /etc/haproxy/haproxy.cfg
+  register: haproxy_config
 
 - name: test configuration
-  command: haproxy -c -V -f {{ DATA_PATH }}/haproxy.cfg
+  command: haproxy -c -V -f /etc/haproxy/haproxy.cfg
+  changed_when: haproxy_config.changed
   notify:
     - restart haproxy

@@ -31,11 +31,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "../../provisioner/init.yml"
     ansible.verbose = "vvvv"
-    ansible.groups = {
-      "lb_group" => ["lb"],
-      "webservers" => ["webserver[1:2]"],
-      "all_groups:children" => ["lb_group", "webservers"]
-    }
     ansible.host_vars = {
       "webserver1" => {"http_port" => 8080,
                        "machine_ip" => "172.16.0.11"
@@ -43,6 +38,11 @@ Vagrant.configure("2") do |config|
       "webserver2" => {"http_port" => 8081,
                        "machine_ip" => "172.16.0.12"
       }
+    }
+    ansible.groups = {
+      "lb_group" => ["lb"],
+      "webservers" => ["webserver[1:2]"],
+      "all_groups:children" => ["lb_group", "webservers"]
     }
   end
 

@@ -6,7 +6,7 @@ server {
     keepalive_timeout 5;
 
     location / {
-       return 200 'Hello World from {{ machine_ip }}';
+       return 200 'Hello World from {{ inventory_hostname }}';
     }
 
 }

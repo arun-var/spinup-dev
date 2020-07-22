@@ -31,5 +31,13 @@ mushycode@dev:~$ curl 172.16.0.10
 
 ```console
 
+## Things to Do
+
+1. ~~add travis checks~~
+2. ~~setup molecule~~
+3. ~~fix molecule vagrant driver issues~~
+4. ~~fix molecule provisioning~~
+5. write tests
+
 Note: With terraform virtualbox provider I was able to get it working with
 ubuntu 15 image only. Vagrant spawns ubuntu 18 VMs.

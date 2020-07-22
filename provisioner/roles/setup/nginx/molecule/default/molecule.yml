@@ -1,0 +1,20 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: VBox
+platforms:
+  - name: lb
+    box: generic/ubuntu1804
+    memory: 256
+    cpus: 1
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
