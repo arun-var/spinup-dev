@@ -32,5 +32,5 @@ install:
   - printf "[defaults]\nroles_path = ../roles" > provisioner/tests/ansible.cfg
 
 script:
-     - cd provisioner/roles/setup/nginx;sudo -E molecule test
+     - cd provisioner/roles/setup/nginx;sudo -E molecule --debug test
      - cd provisioner/roles/setup/haproxy;sudo -E molecule test
