@@ -4,14 +4,12 @@ dependency:
 driver:
   name: vagrant
   provider:
-    name: libvirt
+    name: VBox
 platforms:
   - name: haproxy
     box: generic/ubuntu1804
     memory: 256
     cpus: 1
-    instance_raw_config_args:
-      - 'vagrant.plugins = ["vagrant-libvirt"]'
     config_options:
       ssh.keep_alive: yes
       ssh.remote_user: "'vagrant'"
